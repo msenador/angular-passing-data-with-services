@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'input-ouput-decorators';
+  message: string = 'test';
+
+  constructor(private data: DataService) { }
+
+  ngOnInit(): void {
+    this.data.currentMessage.subscribe(message => this.message = message)
+  }
+
+  newMessage = (): void => {
+    console.log('hit')
+    this.data.changeMessage('Hello from parent')
+  }
 }
