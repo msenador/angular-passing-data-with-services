@@ -20,12 +20,13 @@ export class ChildComponentComponent implements OnInit {
   }
 
   newMessage = (): void => {
-    console.log('hit')
     this.data.changeMessage('hello from child')
   }
 
   addNewTodo = (newTodoName: string, newTodoStatus: string): void => {
     this.todoListData.push({name: newTodoName, status: newTodoStatus, showEdit: false})
   }
+
+
 
 }

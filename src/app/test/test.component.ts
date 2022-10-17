@@ -17,7 +17,6 @@ export class TestComponent implements OnInit {
   }
 
   newMessage = (): void => {
-    console.log('hit')
     this.data.changeMessage('hello from test')
   }
 

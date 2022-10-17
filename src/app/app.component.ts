@@ -16,7 +16,6 @@ export class AppComponent {
   }
 
   newMessage = (): void => {
-    console.log('hit')
     this.data.changeMessage('Hello from parent')
   }
 }
