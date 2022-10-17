@@ -7,3 +7,22 @@ test</a>
 
 <div>{{message}}</div>
 <button (click)="newMessage()">Change</button>
+<hr />
+<h1>TODO LIST:</h1>
+<div *ngFor="let todos of todoListData; let i = index">
+  <li>
+    ({{ i }}) - {{ todos.name}} - {{ todos.status }}
+  </li>
+</div>
+
+<!-- <input
+  type="text"
+  #newTodoName
+/>
+
+<input
+  type="text"
+  #newTodoStatus
+/> -->
+
+<!-- <button (click)="addNewTodo(newTodoName.value, newTodoStatus.value)">Add todo</button> -->

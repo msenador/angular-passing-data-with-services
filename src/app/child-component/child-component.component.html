@@ -1,3 +1,19 @@
 <button (click)="newMessage()">Child message</button>
 
 <div>Message: {{ message }}</div>
+
+<hr />
+<h1>New todo</h1>
+<h3>Name:</h3>
+<input
+  type="text"
+  #newTodoName
+/>
+<h3>Status:</h3>
+<input
+  type="text"
+  #newTodoStatus
+/>
+<button (click)="addNewTodo(newTodoName.value, newTodoStatus.value)">
+  Add Todo
+</button>
