@@ -1,10 +1,14 @@
 <p>landing works!</p>
-<a routerLink="child">
-  Child
-</a>
-<a routerLink="test">
-test</a>
 
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+  <a routerLink="child">
+    ADD TODO
+  </a>
+  <a routerLink="test">
+  test</a>
+</div>
+<hr />
+<h4>Using services to change variable</h4>
 <div>{{message}}</div>
 <button (click)="newMessage()">Change</button>
 <hr />
@@ -21,5 +25,35 @@ test</a>
     <button (click)="handleIncompleteClick(todos.name)">Incomplete</button>
     <button (click)="handleInProgressClick(todos.name)">In Progress</button>
     <button (click)="handleCompletedClick(todos.name)">Completed</button>
+  </div>
+</div>
+<hr />
+<div style="border: 3px solid black; margin-top: 50px;">
+
+  <h1>PARENT</h1>
+<h1>TODO LIST: (Passing Data using @Input & @Output decorators)</h1>
+<h4>New todo name:</h4>
+<input
+  type="text"
+  #newTodoNameDecorator
+/>
+
+<h4>New todo status:</h4>
+<input
+  type="text"
+  #newTodoStatusDecorator
+/>
+
+ <button (click)="handleAddItem(newTodoNameDecorator.value,newTodoStatusDecorator.value)">
+  Add Item
+ </button>
+
+  <app-decorators [todoListFromParent]="todoList4Input" (newItemEvent)="addItemFromParent($event)"></app-decorators>
+
+  <h1>Using @Output to change this list from child --> parent</h1>
+  <div *ngFor="let item of testItems; let i = index">
+    <li>
+      ({{i}}) - {{item}}
+    </li>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { todoList } from '../fakeData/fakeData';
 import { Todo } from '../models/todo.model';
 import { DataService } from '../services/data.service';
 
@@ -12,9 +13,10 @@ export class LandingComponent implements OnInit {
   todoListData: Todo[] = [];
   message: string = '';
   toggleEdit: boolean = false;
+  todoList4Input: Todo[] = todoList;
+  testItems = ['item1', 'item2', 'item3', 'item4'];
 
   constructor(private data: DataService) { }
-
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message)
@@ -61,4 +63,15 @@ export class LandingComponent implements OnInit {
     })
   }
 
+  // HERE starts decorators for @Input
+
+  handleAddItem = (newTodoName: string, newTodoStatus: string): void => {
+    this.todoList4Input.push({name: newTodoName, status: newTodoStatus, showEdit: false})
+  }
+
+  // HERE starts decorators for @Output
+
+  addItemFromParent = (newItem: string): void => {
+    this.testItems.push(newItem)
+  }
 }

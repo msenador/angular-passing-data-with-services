@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ChildComponentComponent } from './child-component/child-component.component';
 import { TestComponent } from './test/test.component';
 import { LandingComponent } from './landing/landing.component';
+import { DecoratorsComponent } from './decorators/decorators.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { LandingComponent } from './landing/landing.component';
     ChildComponentComponent,
     TestComponent,
     LandingComponent,
+    DecoratorsComponent,
   ],
   imports: [
     BrowserModule,

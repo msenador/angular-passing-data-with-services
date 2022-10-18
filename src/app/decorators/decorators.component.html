@@ -1,0 +1,31 @@
+<div style="border: 3px dotted black;">
+  <h3>CHILD</h3>
+  <h5>todo list from parent using @Input decorator</h5>
+  <div *ngFor="let todo of todoListFromParent; let i = index">
+    <li>
+      ({{ i }}) - {{ todo.name }} - {{ todo.status }}
+    </li>
+  </div>
+</div>
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<div style="border: 3px dotted black;">
+  <h3>CHILD</h3>
+  <h5>Add item from child using @Output decorator</h5>
+  <p>ADD AN ITEM:</p>
+  <input
+    type="text"
+    #newItemToAdd
+  />
+  <button (click)="addNewItemFromChild(newItemToAdd.value)">
+    Add Item
+  </button>
+</div>
+
