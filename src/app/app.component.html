@@ -1,3 +1,11 @@
+<h1>HEROES FETCH</h1>
+<div *ngFor="let hero of heroes; let i = index">
+  <li>
+    Id:({{hero.id}}) Name: {{ hero.name }}, FirstName: {{ hero.firstName }}, LastName: {{ hero.lastName }}, Place: {{ hero.place }}
+  </li>
+</div>
+<hr />
+
 <!-- <a routerLink="child">CHILD</a>
 <hr />
 <a routerLink="test">test</a> -->

@@ -1,6 +1,8 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { todoList } from "../fakeData/fakeData";
+import { SuperHero } from "../models/superhero.model";
 import { Todo } from "../models/todo.model";
 
 @Injectable({providedIn: 'root'}) // without object ---> ERROR NullInjectorError: R3InjectorError(AppModule)
@@ -11,9 +13,13 @@ export class DataService {
   currentMessage = this.messageSource.asObservable();
   loadCurrentTodos = this.todoListOnLoad.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   changeMessage(message: string) {
     this.messageSource.next(message)
+  }
+
+  getSuperHeroes(): Observable<SuperHero[]> {
+    return this.http.get<SuperHero[]>(`https://localhost:7259/api/superherostuff`)
   }
 }
